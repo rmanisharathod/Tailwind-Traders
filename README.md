@@ -6,6 +6,7 @@ The Tailwind Traders Power BI Report provides a deep analysis of sales performan
 
 
 Data Processing Using Python
+
 A Python script is used to create a currency exchange table, converting financial data into multiple currencies for standardized reporting.  
 
 Python Script for Exchange Rate Calculation
@@ -49,6 +50,7 @@ DAX Functions for Key Financial Metrics
 
 
 Currency Conversion & USD-Based Reporting
+
 To standardize financial data, a new table (Sales in USD) is created using **DAX functions**, incorporating exchange rates.
 
  DAX Function for Sales in USD Table**  
@@ -90,6 +92,7 @@ DAX Measures for USD-Based Financial Analysis
   ```
 
 Additional Customer & Inventory Insights
+
 The report goes beyond financial analysis by including **customer preferences, inventory status, and sales performance per representative**.
 
 1. Customer Behavior & Preferences
