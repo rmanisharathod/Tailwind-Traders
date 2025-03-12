@@ -138,4 +138,5 @@ Key Insights
 - Sales by Representative: Identifies top-performing sales representatives and their contribution to overall revenue
 
 Conclusion
+
 This Power BI report integrates exchange rate transformations using Python and DAX calculations to provide a comprehensive view of sales performance across multiple currencies offering deep insights into sales, customer behavior, inventory levels, and financial performance. With real-time data visualization and standardized currency reporting, it enables stakeholders to make informed business decisions.
