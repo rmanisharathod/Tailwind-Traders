@@ -1,85 +1,115 @@
-Shop Sphere Customer Churn Analysis
+Tailwind Traders Sales & Profit Insights
 
 Overview
 
-This project presents an analysis of customer churn for Shop Sphere, an e-commerce platform. The insights are derived from an extensive dataset containing customer behavioral metrics, transaction details, and demographics. The report has been generated using Power BI with DAX functions to provide valuable insights into customer tenure, order patterns, and warehouse-home distance relationships.
+The Tailwind Traders Power BI Report provides a deep analysis of sales performance, profitability, customer trends, and inventory insights. It incorporates **Python scripting for currency exchange calculations, DAX functions for financial metrics, and visual analytics to track customer behavior, stock levels, and tax distributions. The report standardizes sales and profit figures by converting them into USD, ensuring accurate financial comparisons across regions.
 
-Dataset Description
-The dataset consists of multiple customer attributes, including:
- - Customer ID
- - Churn Status (1 = Churned, 0 = Active)
- - Tenure (Duration of customer relationship)
- - Preferred Login Device (Mobile, Computer, etc.)
- - City Tier (Economic classification of the customer’s city)
- - Warehouse to Home Distance (Distance in kilometers)
- - Preferred Payment Mode (UPI, COD, Debit Card, etc.)
- - Gender
- - Hours Spent on App
- - Number of Registered Devices
- - Preferred Order Category Last Month
- - Satisfaction Score
- - Marital Status
- - Number of Addresses
- - Complaints in Last Month
- - Order Amount Hike from Last Year
- - Coupons Used in Last Month
- - Order Count in Last Month
- - Days Since Last Order
- - Cashback Amount Received in Last Month
 
-Key Analytical Approaches
+Data Processing Using Python
+A Python script is used to create a currency exchange table, converting financial data into multiple currencies for standardized reporting.  
 
-1. Customer Tenure Classification
-To assess customer longevity, tenure is categorized using the following **DAX functions**:
+Python Script for Exchange Rate Calculation
+ ```python
+  import pandas as pd 
+  from io import StringIO
 
-```DAX
-Minimum Tenure Customer = MIN('E Comm'[Tenure])
-Median Tenure Customer = MEDIAN('E Comm'[Tenure])
-Maximum Tenure Customer = MAX('E Comm'[Tenure])
+  data = """Exchange ID;ExchangeRate;Exchange Currency
+  1;1;USD
+  2;0,75;GBP
+  3;0,85;EUR
+  4;3,67;AED
+  5;1,3;AUD"""
+  df = pd.read_csv(StringIO(data), sep=';')
 
-Tenure Customer Range = 
-IF('E Comm'[Minimum Tenure Customer] <= 10, "Bronze",
-   IF('E Comm'[Median Tenure Customer] <= 20, "Silver","Gold"))
+  # Return the transformed dataframe
+  df   
 ```
-This classification helps in segmenting customers into Bronze (short-term), Silver (medium-term), and Gold (long-term).
+This exchange rate table ensures consistent financial reporting by converting local revenue values into USD.
 
-2. Warehouse to Home Distance and Order Patterns
-To understand the impact of distance on ordering behavior, the following calculations are used:
 
-```DAX
-Minimum distance from warehouse to home = MIN('E Comm'[Warehouse To Home])
-Median Warehouse to Home = MEDIAN('E Comm'[Warehouse To Home])
-Maximum distance from warehouse to home = MAX('E Comm'[Warehouse To Home])
+DAX Functions for Key Financial Metrics  
 
-Customer to warehouse Distance = 
-IF('E Comm'[Minimum distance from warehouse to home] <= 20, "Near",
-   IF('E Comm'[Median Distance from Warehouse to Home] <= 30, "Medium","Far"))
+1. Sales & Profitability Analysis**  
+ - Median Sales:
+  ```DAX
+  Median Sales = MEDIAN('Sales'[Gross Revenue])
+  ```
+- Yearly Profit Margin:
+  ```DAX
+  Yearly Profit Margin = DIVIDE(SUM('Sales'[Gross Revenue]),SUM('Sales'[Net Revenue]),BLANK())
+  ```
+- Yearly Profit Margin Column:
+  ```DAX
+  Yearly Profit Margin column = 'Sales'[Gross Revenue]/'Sales'[Net Revenue]
+  ```
+- Year-To-Date (YTD) Profit:
+  ```DAX
+  YTD Profit = TOTALYTD([Yearly Profit Margin], 'Calendar'[Date])
+  ```
+
+
+Currency Conversion & USD-Based Reporting
+To standardize financial data, a new table (Sales in USD) is created using **DAX functions**, incorporating exchange rates.
+
+ DAX Function for Sales in USD Table**  
+  ```DAX
+   Sales in USD = ADDCOLUMNS(
+    Sales, 
+    "Country Name", RELATED(Countries[Country]), 
+    "Exchange Rate", RELATED('Exchange Data'[Exchange Rate]), 
+    "Exchange Currency", RELATED('Exchange Data'[Exchange Currency]), 
+    "Gross Revenue USD", [Gross Revenue] * RELATED('Exchange Data'[Exchange Rate]), 
+    "Net Revenue USD", [Net Revenue] * RELATED('Exchange Data'[Exchange Rate]), 
+    "Total Tax USD", [Total Tax] * RELATED('Exchange Data'[Exchange Rate]))
+
 ```
-This segmentation helps evaluate the correlation between distance and order frequency.
+This ensures financial metrics are consistent across different currencies.
 
-3. Device Usage Insights
-The average number of devices registered per customer is calculated using:
 
-```DAX
-Average number of devices registered = AVERAGE('E Comm'[Number Of Device Registered])
-```
-This metric is useful in understanding multi-device engagement trends among customers.
+DAX Measures for USD-Based Financial Analysis
 
-Key Findings from the Report
- - Total Cashback Issued (Last Month): $619.74K
- - Total Complaints Registered: 1,065
- - Preferred Payment Mode Distribution: 
-  - UPI: 7.55%
-  - COD: 9%
-  - Credit/Debit Cards & Wallets: Major chunk (40.75%)
- - Churn vs. Orders Analysis:
-  - Higher churn rates among short-tenured customers (Bronze segment)
-  - Customers closer to warehouses tend to order more frequently
- - Most Popular Order Categories (Last Month):
-  - Fashion
-  - Laptops & Accessories
-- Average Hours Spent on App by Active Users: Varies by tenure
+- Median Sales (USD)
+  ```DAX
+  Median Sales USD = MEDIAN('Sales in USD'[Gross Revenue USD])
+  ```
+- Quarterly Profit (USD)
+  ```DAX
+  Quarterly Profit USD = CALCULATE([Yearly Profit Margin USD],DATESQTD('Calendar'[Date]))
+  ```
+- Yearly Profit Margin Column (USD)
+  ```DAX
+  Yearly Profit Margin column USD = 'Sales in USD'[Gross Revenue USD] / 'Sales in USD'[Net Revenue USD]
+  ```
+- Yearly Profit Margin (USD)
+  ```DAX
+  Yearly Profit Margin USD = DIVIDE(SUM('Sales in USD'[Gross Revenue USD]),SUM('Sales in USD'[Net Revenue USD]),BLANK())
+  ```
+- Year-To-Date (YTD) Profit (USD)  
+  ```DAX
+  YTD Profit USD = TOTALYTD([Yearly Profit Margin USD], 'Calendar'[Date]) 
+  ```
+
+Additional Customer & Inventory Insights
+The report goes beyond financial analysis by including **customer preferences, inventory status, and sales performance per representative**.
+
+1. Customer Behavior & Preferences
+ - Popular Products: Identifies best-selling products in different regions.  
+ - Color Choices in Orders: Analyzes product color preferences among customers.  
+ - Customer Ratings: Evaluates satisfaction scores based on product category.  
+ - Loyalty Points Distribution: Measures customer retention and engagement.
+
+2. Warehouse & Stock Insights
+ - Stock Availability by Category: Displays product inventory levels across different warehouses.  
+ - Quantity Sold per Product: Tracks demand trends for different product categories.
+
+3. Tax & Revenue Distribution
+ - Sum of Tax per Product: Calculates the total tax collected for different product categories.  
+ - Gross Revenue vs. Gross Product Price: Compares revenue generated against the original product cost.
+
+4. Sales Representative Performance
+ - Sales by Representative: Tracks individual sales performance and contributions to total revenue.
+ - Regional Sales Impact: Identifies which representatives drive the most sales in specific markets.
 
 Conclusion
 
-This report provides **critical insights into customer churn and purchasing behavior**, enabling **Shop Sphere** to improve retention strategies. The analysis highlights factors affecting churn, such as tenure, warehouse-home distance, and device usage.
+The Tailwind Traders Power BI Report offers a holistic view of sales, profitability, customer trends, and inventory insights. With Python-based currency standardization and DAX-driven financial calculations, this report empowers data-driven decision-making and ensures consistent financial reporting in multiple currencies.
