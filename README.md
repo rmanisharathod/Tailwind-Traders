@@ -109,7 +109,7 @@ Key Insights
 
 - Yearly & Quarterly Profit Margins: Analyzes profitability ratios, allowing comparison across different time periods.
 
-Currency-Adjusted Sales: Converts revenue figures to USD for consistent financial analysis.
+- Currency-Adjusted Sales: Converts revenue figures to USD for consistent financial analysis.
 
 2. Customer Trends & Product Preferences
 
