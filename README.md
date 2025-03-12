@@ -98,6 +98,44 @@ For analysis in USD, the following measures were created:
   YTD Profit USD = TOTALYTD([Yearly Profit Margin USD], 'Calendar'[Date]) 
   ```
 
+Key Insights
+
+
+1. Sales & Profitability Analysis
+
+- Sales Performance by Date & Country: Displays sales trends over time and identifies top-performing regions.
+
+- Gross Revenue & Net Revenue: Provides an overview of total sales and net earnings across multiple locations.
+
+- Yearly & Quarterly Profit Margins: Analyzes profitability ratios, allowing comparison across different time periods.
+
+Currency-Adjusted Sales: Converts revenue figures to USD for consistent financial analysis.
+
+2. Customer Trends & Product Preferences
+
+- Popular Products & Categories: Identifies the best-selling items across different regions.
+
+- Color Preferences in Orders: Tracks product orders based on color preferences, showing customer buying behavior.
+
+- Customer Ratings by Product Category: Evaluates customer feedback across various product lines.
+
+- Loyalty Points by Country: Analyzes customer retention through the distribution of loyalty points.
+
+3. Warehouse & Inventory Insights
+
+- Stock Levels by Product Category: Displays available inventory for different product categories.
+
+- Quantity Sold Analysis: Tracks the number of units sold per product, highlighting demand trends.
+
+4. Tax & Revenue Breakdown
+
+- Sum of Tax per Product: Provides tax distribution insights across different product types.
+
+- Gross Revenue vs. Gross Product Price: Compares total revenue generated against product costs to assess profitability.
+
+5. Sales Representative Performance
+
+- Sales by Representative: Identifies top-performing sales representatives and their contribution to overall revenue
 
 Conclusion
-This Power BI report integrates exchange rate transformations using Python and DAX calculations to provide a comprehensive view of sales performance across multiple currencies. The measures ensure accurate financial analysis for decision-making.
+This Power BI report integrates exchange rate transformations using Python and DAX calculations to provide a comprehensive view of sales performance across multiple currencies offering deep insights into sales, customer behavior, inventory levels, and financial performance. With real-time data visualization and standardized currency reporting, it enables stakeholders to make informed business decisions.
