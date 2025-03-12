@@ -119,4 +119,5 @@ Year-To-Date (YTD) Profit (USD)
   ```
 
 Conclusion
+
 The Tailwind Traders Power BI Report offers deep insights into sales, customer behavior, inventory levels, and financial performance. It leverages Python scripting for currency exchange rates and DAX calculations to provide a comprehensive view of sales performance across multiple currencies enabling stakeholders to make informed business decisions with standardized financial reporting.
