@@ -1,6 +1,7 @@
 Power BI Report: Currency Exchange & Sales Analysis
 
 Overview
+
 The Tailwind Traders Power BI Report provides provides a comprehensive analysis of global sales and profitability. Insights into sales performance across different currencies by integrating an exchange rate table and calculating sales metrics in USD. It integrates key financial metrics, customer behavior insights, operational data, and currency exchange conversions using Python scripting and DAX functions. This report includes analysis in both local currencies and USD to ensure accurate global financial reporting.
 
 Key Insights
