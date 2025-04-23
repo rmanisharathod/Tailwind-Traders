@@ -2,7 +2,7 @@ Tailwind Traders Sales & Profit Insights
 
 Overview
 
-The Tailwind Traders Power BI Report provides a deep analysis of sales performance, profitability, customer trends, and inventory insights. It incorporates **Python scripting for currency exchange calculations, DAX functions for financial metrics, and visual analytics to track customer behavior, stock levels, and tax distributions. The report standardizes sales and profit figures by converting them into USD, ensuring accurate financial comparisons across regions.
+The Tailwind Traders Power BI Report provides a deep analysis of sales performance, profitability, customer trends, and inventory insights. It incorporates Python scripting for currency exchange calculations, DAX functions for financial metrics, and visual analytics to track customer behavior, stock levels, and tax distributions. The report standardizes sales and profit figures by converting them into USD, ensuring accurate financial comparisons across regions.
 
 
 Data Processing Using Python
