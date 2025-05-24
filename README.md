@@ -159,18 +159,18 @@ YTD Profit USD = TOTALYTD([Yearly Profit Margin USD], 'Calendar'[Date])
 
 <table>
   <tr>
-    <td><img src="pairplot.png" alt="Pairplot" width="400"/></td>
-    <td><img src="heatmap.png" alt="Correlation Heatmap" width="400"/></td>
+    <td><img src="sales_and_profit_overview.PNG" alt="Sales and Profit Overview" width="400"/></td>
+    <td><img src="usd_sales_overview.PNG" alt="USD Sales Overview" width="400"/></td>
   </tr>
   <tr>
-    <td align="center">Seaborn Pairplot</td>
-    <td align="center">Correlation Heatmap</td>
+    <td align="center">Sales and Profit Overview</td>
+    <td align="center">USD Sales Overview</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><img src="boxplot.png" alt="Boxplot" width="400"/></td>
+    <td colspan="2" align="center"><img src="usd_profit_overview.PNG" alt="USD Profit Overview" width="400"/></td>
   </tr>
   <tr>
-    <td colspan="2" align="center">Boxplot of Numerical Features</td>
+    <td colspan="2" align="center">USD Profit Overview</td>
   </tr>
 </table>
 
