@@ -68,9 +68,7 @@ Yearly Profit Margin = DIVIDE(SUM('Sales'[Gross Revenue]), SUM('Sales'[Net Reven
 ```
 YTD Profit = TOTALYTD([Yearly Profit Margin], 'Calendar'[Date])
 ```
-
 ---
-
 ## 💵 USD-Based Financial Reporting
 
 To ensure currency-consistent reporting, a new table Sales in USD was created:
@@ -140,6 +138,84 @@ YTD Profit USD = TOTALYTD([Yearly Profit Margin USD], 'Calendar'[Date])
 
 ---
 
+## 📊 Insight Charts Overview: Visualizing Key Business Metrics
+
+| 📈 Plot Title                             | 📊 Chart Type     | 🧾 Columns Used                         | 🔍 Purpose                                      |
+| ----------------------------------------- | ----------------- | --------------------------------------- | ----------------------------------------------- |
+| Orders by Color and Size                  | Stacked Bar Chart | Color, Size, Number of Orders           | Understand customer preferences by color & size |
+| Customer Ratings by Category              | Line Chart        | Product Category, Sum of Rating         | Evaluate satisfaction across product categories |
+| Loyalty Points vs. Product Stocks         | Clustered Bar     | Product Category, Loyalty Points, Stock | Compare engagement with product availability    |
+| Tax Collected per Product                 | Horizontal Bar    | Product Category, Tax Amount            | Analyze tax contribution per category           |
+| Sales by Sales Representatives            | Pie Chart         | Sales Rep Name, Sales Count             | Breakdown of sales performance by reps          |
+| Gross Revenue vs. Product Cost (Quantity) | Bubble Chart      | Gross Revenue, Gross Product Price      | Visualize profitability by cost and volume      |
+| Net Revenue by Product                    | Bar Chart         | Product Name, Net Revenue USD           | Highlight top-earning individual products       |
+| Net Revenue by Country                    | Donut Chart       | Country Name, Net Revenue USD           | Compare revenue contributions per region        |
+| Yearly Profit Margin Over Time            | Area Chart        | Date, Yearly Profit Margin USD          | Track profitability trends over the year        |
+| Gross Revenue USD by Date                 | Line Chart        | Date, Gross Revenue USD                 | View daily revenue flows over time              |
+
+---
+
+## 📸 Sample Visualizations
+
+<table>
+  <tr>
+    <td><img src="pairplot.png" alt="Pairplot" width="400"/></td>
+    <td><img src="heatmap.png" alt="Correlation Heatmap" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center">Seaborn Pairplot</td>
+    <td align="center">Correlation Heatmap</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><img src="boxplot.png" alt="Boxplot" width="400"/></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">Boxplot of Numerical Features</td>
+  </tr>
+</table>
+
+📊 Each chart brings unique business insights—from customer behavior to sales rep impact and profit trends.
+
+---
+
+## 🧍 Customer Behavior & Preferences
+
+| Metric                  | Description                                           |
+| ----------------------- | ----------------------------------------------------- |
+| 🔥 **Popular Products** | Most frequently ordered items per region              |
+| 🎨 **Color Choices**    | Product preferences across different sizes and colors |
+| ⭐ **Customer Ratings**  | Satisfaction distribution across categories           |
+| 🎁 **Loyalty Points**   | Track customer engagement and retention efforts       |
+
+---
+
+## 🏬 Warehouse & Inventory Insights
+
+| Insight                  | Purpose                                    |
+| ------------------------ | ------------------------------------------ |
+| 🗂 **Stock by Category** | Displays inventory health by category      |
+| 📦 **Quantity Sold**     | Measures product demand and stock movement |
+
+---
+
+## 💵 Tax & Revenue Distribution
+
+| Metric                        | Description                              |
+| ----------------------------- | ---------------------------------------- |
+| 🧾 **Tax per Product**        | Tax contribution by product category     |
+| 💸 **Gross Revenue vs. Cost** | Profitability analysis across categories |
+
+---
+
+## 🧑‍💼 Sales Representative Performance
+
+| Metric                         | Purpose                                            |
+| ------------------------------ | -------------------------------------------------- |
+| 🧍 **Sales by Representative** | Tracks individual contributions to overall revenue |
+| 🌍 **Regional Sales Impact**   | Measures rep performance by territory              |
+
+---
+
 ## 🧭 File Structure
 
 ```bash
@@ -173,6 +249,10 @@ cd tailwind-traders-report
 cd Python
 python currency_conversion.py
 ```
+---
+
+
+
 ---
 
 ## 📜 License
