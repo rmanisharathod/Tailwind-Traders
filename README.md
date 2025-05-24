@@ -160,7 +160,7 @@ YTD Profit USD = TOTALYTD([Yearly Profit Margin USD], 'Calendar'[Date])
 <table>
   <tr>
     <td><img src="sales_and_profit_overview.PNG" alt="Sales and Profit Overview" width="400"/></td>
-    <td><img src="usd_sales_overview.PNG" alt="USD Sales Overview" width="400"/></td>
+    <td><img src="usd_sales_overivew.PNG" alt="USD Sales Overview" width="400"/></td>
   </tr>
   <tr>
     <td align="center">Sales and Profit Overview</td>
